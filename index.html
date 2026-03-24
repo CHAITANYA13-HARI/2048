@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2048</title>
+<style>
+body { font-family: sans-serif; text-align: center; background: #faf8ef; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 80px);
+  gap: 10px;
+  justify-content: center;
+}
+.tile {
+  width: 80px; height: 80px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px;
+  background: #cdc1b4;
+}
+</style>
+</head>
+<body>
+
+<h1>2048</h1>
+<div class="grid" id="grid"></div>
+
+<script>
+let grid = [];
+for(let i=0;i<16;i++) grid[i]=0;
+
+function draw(){
+  let g = document.getElementById("grid");
+  g.innerHTML="";
+  grid.forEach(v=>{
+    let d=document.createElement("div");
+    d.className="tile";
+    d.innerText=v||"";
+    g.appendChild(d);
+  });
+}
+draw();
+</script>
+
+</body>
+</html>
